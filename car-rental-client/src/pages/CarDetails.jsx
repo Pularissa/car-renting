@@ -5,7 +5,8 @@ import Loader from '../components/Loader';
 import { useAppContext } from '../context/AppContext';
 import toast from 'react-hot-toast';
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion'; // Correct import
+import { motion } from 'framer-motion';
+import Carousel from '../components/Carousel';
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -17,6 +18,7 @@ const CarDetails = () => {
   const [location, setLocation] = useState('');
   const [phone, setPhone] = useState('');
   const [mode, setMode] = useState(searchParams.get('mode') || 'rent'); // 'rent' or 'buy'
+  // Carousel state is now managed by the Carousel component
 
   // Buy form state
   const [fullName, setFullName] = useState('');
@@ -46,6 +48,8 @@ const CarDetails = () => {
     }
     setCar(foundCar);
   }, [cars, id]);
+
+  // Carousel auto-play and navigation is now handled by the Carousel component
 
   const handleRentSubmit = async (e) => {
     e.preventDefault();
@@ -132,15 +136,19 @@ const CarDetails = () => {
           transition={{ duration: 0.8 }}
           className="lg:col-span-2"
         >
-          {/* Car Image */}
-          <motion.img
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            src={car.image}
-            alt={`${car.brand} ${car.model}`}
-            className="w-full h-auto md:max-h-[550px] object-cover rounded-2xl mb-8 shadow-2xl"
-          />
+          {/* Car Image Carousel */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8"
+          >
+            <Carousel 
+              images={car.images && car.images.length > 0 ? car.images : [assets.car_image1, assets.car_image2, assets.car_image3, assets.car_image4]}
+              autoPlay={true}
+              interval={5000}
+            />
+          </motion.div>
 
           <motion.div
             initial="hidden"

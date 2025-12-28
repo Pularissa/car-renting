@@ -1,7 +1,7 @@
 import React from 'react'
 import Title from './Title'
 import { assets } from '../assets/assets'
-import CarCard from './CarCard'
+import CarCardNew from './CarCardNew'
 import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
 // eslint-disable-next-line no-unused-vars
@@ -41,7 +41,7 @@ const FeaturedSection = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, ease: "easeOut"  }}
                 >
-                    <CarCard car={car}/>
+                    <CarCardNew car={car}/>
                 </motion.div>
             ))
         }

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Title from '../components/Title'
-import { assets, dummyCarData } from '../assets/assets'
-import CarCard from '../components/CarCard'
+import { assets } from '../assets/assets'
+import CarCardNew from '../components/CarCardNew'
 import { useSearchParams } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
 import toast from 'react-hot-toast'
-import { motion } from 'motion/react'
+// import { motion } from 'motion/react'
 
 const Cars = () => {
 
@@ -97,7 +97,7 @@ const Cars = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 * index, duration: 0.4 }}
             >
-              <CarCard car={car}/>
+              <CarCardNew car={car}/>
             </motion.div>
           ))}
         </div>
