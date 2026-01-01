@@ -7,6 +7,7 @@
 }
 
 @theme {
+  /* Updated to match purple/magenta logo theme */
   --color-primary: #8B3A8A;
   --color-primary-dull: #6B2B6A;
   --color-light: #F3E6F3;
