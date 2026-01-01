@@ -50,7 +50,7 @@ const CarCardNew = ({ car }) => {
           loop={true}
           className="h-full"
           style={{
-            '--swiper-navigation-size': '8px',
+            '--swiper-navigation-size': '4px',
             '--swiper-navigation-color': '#ffffff',
             '--swiper-navigation-bg': 'rgba(0,0,0,0.5)',
           }}

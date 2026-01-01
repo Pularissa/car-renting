@@ -37,7 +37,7 @@ const Carousel = ({ images, autoPlay = true, interval = 4000 }) => {
         loop={true}
         className="rounded-2xl shadow-xl"
         style={{
-          '--swiper-navigation-size': '10px',
+          '--swiper-navigation-size': '5px',
           '--swiper-navigation-color': '#ffffff',
           '--swiper-navigation-bg': 'rgba(0,0,0,0.5)',
         }}
