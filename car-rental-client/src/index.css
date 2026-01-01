@@ -7,10 +7,10 @@
 }
 
 @theme {
-  --color-primary: #1E40AF;
-  --color-primary-dull: #1E3A8A;
-  --color-light: #EFF6FF;
-  --color-borderColor: #DBEAFE;
+  --color-primary: #8B3A8A;
+  --color-primary-dull: #6B2B6A;
+  --color-light: #F3E6F3;
+  --color-borderColor: #E6D3E6;
 }
 
 @layer base {
