@@ -3,7 +3,7 @@ import { assets } from '../assets/assets';
 import Title from '../components/Title';
 import { useAppContext } from '../context/AppContext';
 import toast from 'react-hot-toast';
-import { motion } from 'framer-motion'; // Correct import (assuming framer-motion)
+import { motion as Motion } from 'framer-motion';
 
 const MyBookings = () => {
   const { axios, user, currency } = useAppContext();
@@ -46,7 +46,7 @@ const MyBookings = () => {
   }, [user, fetchMyBookings, fetchMyPurchases]);
 
   return (
-    <motion.div
+    <Motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -85,7 +85,7 @@ const MyBookings = () => {
             <p className="text-center text-gray-500 mt-8">No bookings found</p>
           ) : (
             bookings.map((booking, index) => (
-              <motion.div
+              <Motion.div
                 key={booking._id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ const MyBookings = () => {
                 <div className="md:col-span-1">
                   <div className="rounded-md overflow-hidden mb-3">
                     <img
-                      src={booking.car.image}
+                      src={booking.car.images ? booking.car.images[0] : booking.car.image}
                       alt={`${booking.car.brand} ${booking.car.model}`}
                       className="w-full h-auto aspect-video object-cover"
                     />
@@ -152,7 +152,7 @@ const MyBookings = () => {
                     <p>Booked on {booking.createdAt.split('T')[0]}</p>
                   </div>
                 </div>
-              </motion.div>
+              </Motion.div>
             ))
           )
         )}
@@ -162,7 +162,7 @@ const MyBookings = () => {
             <p className="text-center text-gray-500 mt-8">No purchases found</p>
           ) : (
             purchases.map((purchase, index) => (
-              <motion.div
+              <Motion.div
                 key={purchase._id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -173,7 +173,7 @@ const MyBookings = () => {
                 <div className="md:col-span-1">
                   <div className="rounded-md overflow-hidden mb-3">
                     <img
-                      src={purchase.car.image}
+                      src={purchase.car.images ? purchase.car.images[0] : purchase.car.image}
                       alt={`${purchase.car.brand} ${purchase.car.model}`}
                       className="w-full h-auto aspect-video object-cover"
                     />
@@ -241,12 +241,12 @@ const MyBookings = () => {
                     <p>Purchased on {purchase.createdAt.split('T')[0]}</p>
                   </div>
                 </div>
-              </motion.div>
+              </Motion.div>
             ))
           )
         )}
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 

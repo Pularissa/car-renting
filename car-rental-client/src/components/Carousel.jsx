@@ -20,7 +20,10 @@ const Carousel = ({ images, autoPlay = true, interval = 4000 }) => {
         modules={[Navigation, Pagination, Autoplay, Thumbs]}
         spaceBetween={10}
         slidesPerView={1}
-        navigation
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }}
         pagination={{ 
           clickable: true,
           dynamicBullets: true
@@ -33,6 +36,11 @@ const Carousel = ({ images, autoPlay = true, interval = 4000 }) => {
         thumbs={{ swiper: thumbsSwiper }}
         loop={true}
         className="rounded-2xl shadow-xl"
+        style={{
+          '--swiper-navigation-size': '10px',
+          '--swiper-navigation-color': '#ffffff',
+          '--swiper-navigation-bg': 'rgba(0,0,0,0.5)',
+        }}
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>

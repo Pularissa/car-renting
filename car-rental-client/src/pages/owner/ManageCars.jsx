@@ -83,7 +83,7 @@ const ManageCars = () => {
               <tr key={index} className='border-t border-borderColor'>
 
                 <td className='p-3 flex items-center gap-3'>
-                  <img src={car.image} alt="" className="h-12 w-12 aspect-square rounded-md object-cover"/>
+                  <img src={car.images ? car.images[0] : car.image} alt="" className="h-12 w-12 aspect-square rounded-md object-cover"/>
                   <div className='max-md:hidden'>
                     <p className='font-medium'>{car.brand} {car.model}</p>
                     <p className='text-xs text-gray-500'>{car.seating_capacity} • {car.transmission}</p>

@@ -1,13 +1,23 @@
-import React, { useState } from 'react'
-import { assets, cityList } from '../assets/assets'
+import React, { useState, useEffect } from 'react'
+import { assets, cityList, dummyCarData } from '../assets/assets'
 import { useAppContext } from '../context/AppContext'
 import {motion} from 'motion/react'
 
 const Hero = () => {
 
     const [pickupLocation, setPickupLocation] = useState('')
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
     const {pickupDate, setPickupDate, returnDate, setReturnDate, navigate} = useAppContext()
+
+    const images = [assets.car_image1, assets.car_image2, assets.car_image3, assets.car_image4]
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+        }, 3000)
+        return () => clearInterval(interval)
+    }, [images.length])
 
     const handleSearch = (e)=>{
         e.preventDefault()
@@ -19,7 +29,22 @@ const Hero = () => {
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 0.8 }}
-    className='h-screen flex flex-col items-center justify-center gap-14 bg-light text-center'>
+    className='h-screen flex flex-col items-center justify-center gap-14 text-center relative overflow-hidden'
+    style={{
+        backgroundImage: `url(${images[currentImageIndex]})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+    }}
+    >
+
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        <motion.h1 initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+        className='text-4xl md:text-5xl font-semibold text-white relative z-10'>Luxury cars on Rent</motion.h1>
 
         <motion.h1 initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -31,7 +56,7 @@ const Hero = () => {
       animate={{ scale: 1, opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.4 }}
 
-       onSubmit={handleSearch} className='flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-lg md:rounded-full w-full max-w-80 md:max-w-200 bg-white shadow-[0px_8px_20px_rgba(0,0,0,0.1)]'>
+       onSubmit={handleSearch} className='flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-lg md:rounded-full w-full max-w-80 md:max-w-200 bg-white shadow-[0px_8px_20px_rgba(0,0,0,0.1)] relative z-10'>
 
         <div className='flex flex-col md:flex-row items-start md:items-center gap-10 min-md:ml-8'>
             <div className='flex flex-col items-start gap-2'>
@@ -60,11 +85,25 @@ const Hero = () => {
             </motion.button>
       </motion.form>
 
-      <motion.img 
+      <motion.div 
         initial={{ y: 100, opacity: 0 }}
        animate={{ y: 0, opacity: 1 }}
        transition={{ duration: 0.8, delay: 0.6 }}
-      src={assets.main_car} alt="car" className='max-h-74'/>
+       className="flex flex-wrap justify-center gap-4 z-10"
+      >
+        {images.map((image, index) => (
+          <motion.img
+            key={index}
+            src={image}
+            alt={`Car ${index + 1}`}
+            className="w-48 h-32 object-cover rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
+            onClick={() => { navigate(`/car-details/${dummyCarData[index]._id}`); window.scrollTo(0,0) }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          />
+        ))}
+      </motion.div>
     </motion.div>
   )
 }

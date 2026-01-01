@@ -31,7 +31,7 @@ const Footer = () => {
                         transition={{ duration: 0.5, delay: 0.4 }}
 
                     className='max-w-80 mt-3'>
-                        Premium car rental service with a wide selection of luxury and everyday vehicles for all your driving needs.
+                        PULARISSA LTD - Premium car rental service with luxury vehicles for all your transportation needs.
                     </motion.p>
                     <motion.div 
                         initial={{ opacity: 0 }}
@@ -76,10 +76,11 @@ const Footer = () => {
                 <div>
                     <h2 className='text-base font-medium text-gray-800 uppercase'>Contact</h2>
                     <ul className='mt-3 flex flex-col gap-1.5'>
-                        <li>1234 Luxury Drive</li>
-                        <li>Kigali, CA 94107</li>
+                        <li>KN 78 St, Kigali, Rwanda</li>
+                        <li>TIN: 101973677</li>
                         <li>+250 788 888 577</li>
-                        <li>info@luxurycars.com</li>
+                        <li>info@pularissa.com</li>
+                        <li>Bank: Kigali, 040-0117156-01</li>
                     </ul>
                 </div>
 
@@ -97,7 +98,7 @@ const Footer = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 
             className='flex flex-col md:flex-row gap-2 items-center justify-between py-5'>
-                <p>© {new Date().getFullYear()} Brand. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} PULARISSA LTD. All rights reserved.</p>
                 <ul className='flex items-center gap-4'>
                     <li><a href="#">Privacy</a></li>
                     <li>|</li>

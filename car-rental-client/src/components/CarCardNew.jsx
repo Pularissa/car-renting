@@ -33,7 +33,10 @@ const CarCardNew = ({ car }) => {
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={0}
           slidesPerView={1}
-          navigation
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
           pagination={{ 
             clickable: true,
             dynamicBullets: true,
@@ -46,6 +49,11 @@ const CarCardNew = ({ car }) => {
           }}
           loop={true}
           className="h-full"
+          style={{
+            '--swiper-navigation-size': '8px',
+            '--swiper-navigation-color': '#ffffff',
+            '--swiper-navigation-bg': 'rgba(0,0,0,0.5)',
+          }}
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>

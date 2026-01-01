@@ -106,7 +106,7 @@ const ManageBookings = () => {
                 <tr key={index} className='border-t border-borderColor text-gray-500'>
 
                   <td className='p-3 flex items-center gap-3'>
-                    <img src={booking.car.image} alt="" className='h-12 w-12 aspect-square rounded-md object-cover'/>
+                    <img src={booking.car.images ? booking.car.images[0] : booking.car.image} alt="" className='h-12 w-12 aspect-square rounded-md object-cover'/>
                     <p className='font-medium max-md:hidden'>{booking.car.brand} {booking.car.model}</p>
                   </td>
 
@@ -156,7 +156,7 @@ const ManageBookings = () => {
                 <tr key={index} className='border-t border-borderColor text-gray-500'>
 
                   <td className='p-3 flex items-center gap-3'>
-                    <img src={purchase.car.image} alt="" className='h-12 w-12 aspect-square rounded-md object-cover'/>
+                    <img src={purchase.car.images ? purchase.car.images[0] : purchase.car.image} alt="" className='h-12 w-12 aspect-square rounded-md object-cover'/>
                     <p className='font-medium max-md:hidden'>{purchase.car.brand} {purchase.car.model}</p>
                   </td>
 
