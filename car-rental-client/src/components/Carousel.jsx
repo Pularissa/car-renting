@@ -35,7 +35,7 @@ const Carousel = ({ images, autoPlay = true, interval = 4000 }) => {
         } : false}
         thumbs={{ swiper: thumbsSwiper }}
         loop={true}
-        className="rounded-2xl shadow-xl"
+        className="rounded-lg shadow-md"
         style={{
           '--swiper-navigation-size': '5px',
           '--swiper-navigation-color': '#ffffff',
@@ -44,7 +44,7 @@ const Carousel = ({ images, autoPlay = true, interval = 4000 }) => {
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <div className="aspect-video w-full overflow-hidden rounded-2xl">
+            <div className="aspect-video w-full overflow-hidden rounded-lg">
               <img
                 src={image}
                 alt={`Slide ${index + 1}`}

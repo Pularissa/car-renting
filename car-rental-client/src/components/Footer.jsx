@@ -31,7 +31,7 @@ const Footer = () => {
                         transition={{ duration: 0.5, delay: 0.4 }}
 
                     className='max-w-80 mt-3'>
-                        PULARISSA LTD - Premium car rental service with luxury vehicles for all your transportation needs.
+                        ROD'S T COMPANY Ltd - Premium car rental service with luxury vehicles for all your transportation needs.
                     </motion.p>
                     <motion.div 
                         initial={{ opacity: 0 }}
@@ -76,11 +76,11 @@ const Footer = () => {
                 <div>
                     <h2 className='text-base font-medium text-gray-800 uppercase'>Contact</h2>
                     <ul className='mt-3 flex flex-col gap-1.5'>
-                        <li>KN 78 St, Kigali, Rwanda</li>
-                        <li>TIN: 101973677</li>
-                        <li>+250 788 888 577</li>
-                        <li>info@pularissa.com</li>
-                        <li>Bank: Kigali, 040-0117156-01</li>
+                        <li>Gakiriro / Gisozi, Rwanda</li>
+                        <li>TIN: 123240168</li>
+                        <li>0788888577 / 0788851520</li>
+                        <li>rodistcompanyltd@gmail.com</li>
+                        <li>Bank of Africa: 02823900003</li>
                     </ul>
                 </div>
 
@@ -98,7 +98,7 @@ const Footer = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 
             className='flex flex-col md:flex-row gap-2 items-center justify-between py-5'>
-                <p>© {new Date().getFullYear()} PULARISSA LTD. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} ROD'S T COMPANY Ltd. All rights reserved.</p>
                 <ul className='flex items-center gap-4'>
                     <li><a href="#">Privacy</a></li>
                     <li>|</li>

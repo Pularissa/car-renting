@@ -103,8 +103,8 @@ export const ownerMenuLinks = [
 
 export const dummyUserData = {
   "_id": "6847f7cab3d8daecdb517095",
-  "name": "PULARISSA LTD",
-  "email": "info@pularissa.com",
+  "name": "ROD'S T COMPANY Ltd",
+  "email": "rodistcompanyltd@gmail.com",
   "role": "owner",
   "image": user_profile,
 }
